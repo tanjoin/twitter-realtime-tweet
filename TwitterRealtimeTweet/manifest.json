@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "TwitterRealtimeTweet",
+  "description": "I want to see realtime tweet.",
+  "version": "0.0.1",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "page_action": {
+    "default_icon": "icons/icon.png",
+    "default_title": "TwitterRealtimeTweet"
+  },
+  "background": {
+    "scripts": ["scripts/background.js"]
+  },
+  "content_scripts": [{
+    "matches": [
+      "https://twitter.com/home"
+    ],
+    "js": ["scripts/content_script.js"],
+    "run_at": "document_idle",
+    "all_frames": true
+  }]
+}
