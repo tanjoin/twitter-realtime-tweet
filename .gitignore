@@ -1,0 +1,7 @@
+## .gitignore ##
+
+# Mac
+.DS_Store
+
+# Secret Key
+*.pem
