@@ -18,7 +18,7 @@ function change() {
   var target = document.querySelector('h2 > span');
   if (target.innerText !== '最新ツイート') {
     document.querySelector('h2 > span').parentElement.parentElement.parentElement.nextElementSibling.children[0].click();
-    window.setTimeout(menuClick, 1000);
+    window.setTimeout(menuClick, 500);
   }
 }
 
