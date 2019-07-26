@@ -28,5 +28,11 @@ function hide() {
     window.setTimeout(hide, 500);
     return;
   }
-  [...document.querySelector('section > div > div > div').children].filter((div) => div.innerText.match(/プロモーション$/)).forEach((e) => e.style.display = 'none');
+  [...document.querySelector('section > div > div > div').children]
+    .filter((div) => div.innerText.match(/プロモーション$/))
+    .filter((div) => div.style.display !== 'none')
+    .forEach((e) => {
+      e.style.display = 'none';
+      console.log(`hide! ${e.querySelector('a').href}`);
+    });
 };
