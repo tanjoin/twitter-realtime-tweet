@@ -23,7 +23,7 @@ function change() {
       window.setTimeout(change, 500);
       return;
     }
-    window.setTimeout(menuClick, 200);
+    menuClick();
   }
 }
 
