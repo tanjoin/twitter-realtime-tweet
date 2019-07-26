@@ -25,7 +25,7 @@ function setup() {
 function hide() {
   var section = document.querySelector('section > div > div > div');
   if (!section || !section.childElementCount === 0) {
-    window.setTimeout(hide, 500);
+    window.setTimeout(hide, 1000);
     return;
   }
   [...document.querySelector('section > div > div > div').children]
