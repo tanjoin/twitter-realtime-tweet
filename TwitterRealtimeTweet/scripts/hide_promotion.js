@@ -26,14 +26,7 @@ function hide() {
   var section = document.querySelector('section > div > div > div');
   if (!section || !section.childElementCount === 0) {
     window.setTimeout(hide, 500);
-    window.setTimeout(hide, 2000);
     return;
   }
-  var list = [...document.querySelector('section > div > div > div').children]
-    .filter((div) => div.innerText.match(/プロモーション$/))
-    .filter((div) => div.style.display !== 'none');
-  if (list.length > 0) {
-    console.log('hide!');
-    list.forEach((e) => e.style.display = 'none');
-  }
+  [...document.querySelector('section > div > div > div').children].filter((div) => div.innerText.match(/プロモーション$/)).forEach((e) => e.style.display = 'none');
 };
