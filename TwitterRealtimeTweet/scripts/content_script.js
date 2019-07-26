@@ -9,7 +9,6 @@ function setup() {
   var target = document.querySelector('h2 > span');
   if (!target) {
     window.setTimeout(setup, 500);
-    console.log('Wait!');
     return;
   }
   change();
@@ -17,17 +16,17 @@ function setup() {
 
 function change() {
   var target = document.querySelector('h2 > span');
-  if (target.innerText !== '最新ツイート') {
+  if (target.innerText !== '最新ツイート' &&
+      target.innerText !== 'Latest Tweets' &&
+      target.innerText !== '最新推文' &&
+      target.innerText !== 'Последние твиты') {
     document.querySelector('h2 > span').parentElement.parentElement.parentElement.nextElementSibling.children[0].click();
     var menu = document.querySelector('[role="menu"]');
     if (!menu) {
       window.setTimeout(change, 500);
-      console.log('Wait!!');
       return;
     }
     check();
-  } else {
-    console.log('Already!');
   }
 }
 
@@ -35,7 +34,6 @@ function check() {
   var menu = document.querySelector('[role="menu"]');
   if (!menu) {
     window.setTimeout(change, 500);
-    console.log('Why?');
     return;
   }
   menuClick();
@@ -43,12 +41,11 @@ function check() {
 
 function menuClick() {
   var menu = document.querySelector('[role="menu"]').children[0].children[0].children[0].children[1];
-  if (!menu) {
+  if (!menu || typeof menu.click !== 'function') {
     window.setTimeout(menuClick, 500);
-    console.log('Why?');
     return;
   }
   menu.click();
-  console.log('Complete!');
+  console.log('switch to latest tweets!');
 }
 
