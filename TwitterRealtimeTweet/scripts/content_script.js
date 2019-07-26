@@ -9,6 +9,7 @@ function setup() {
   var target = document.querySelector('h2 > span');
   if (!target) {
     window.setTimeout(setup, 500);
+    console.log('Wait!');
     return;
   }
   change();
@@ -21,12 +22,22 @@ function change() {
     var menu = document.querySelector('[role="menu"]');
     if (!menu) {
       window.setTimeout(change, 500);
+      console.log('Wait!!');
       return;
     }
     menuClick();
+  } else {
+    console.log('Already!');
   }
 }
 
 function menuClick() {
-  document.querySelector('[role="menu"]').children[0].children[0].children[0].children[1].click();
+  var menu = document.querySelector('[role="menu"]');
+  if (!menu) {
+    window.setTimeout(change, 500);
+    console.log('Why?');
+    return;
+  }
+  menu.children[0].children[0].children[0].children[1].click();
+  console.log('Complete!');
 }
