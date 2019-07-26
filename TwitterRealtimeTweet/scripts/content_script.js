@@ -25,19 +25,30 @@ function change() {
       console.log('Wait!!');
       return;
     }
-    menuClick();
+    check();
   } else {
     console.log('Already!');
   }
 }
 
-function menuClick() {
+function check() {
   var menu = document.querySelector('[role="menu"]');
   if (!menu) {
     window.setTimeout(change, 500);
     console.log('Why?');
     return;
   }
-  menu.children[0].children[0].children[0].children[1].click();
+  menuClick();
+}
+
+function menuClick() {
+  var menu = document.querySelector('[role="menu"]').children[0].children[0].children[0].children[1];
+  if (!menu) {
+    window.setTimeout(menuClick, 500);
+    console.log('Why?');
+    return;
+  }
+  menu.click();
   console.log('Complete!');
 }
+
