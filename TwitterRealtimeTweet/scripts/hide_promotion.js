@@ -23,5 +23,15 @@ function setup() {
 };
 
 function hide() {
-  [...document.querySelector('section > div > div > div').children].filter((div) => div.innerText.match(/プロモーション$/)).forEach((e) => e.style.display = 'none');
+  var section = document.querySelector('section > div > div > div');
+  if (!section || !section.childElementCount === 0) {
+    return;
+  }
+  var list = [...document.querySelector('section > div > div > div').children]
+    .filter((div) => div.innerText.match(/プロモーション$/))
+    .filter((div) => div.style.display !== 'none');
+  if (list.length > 0) {
+    console.log('hide!');
+    list.forEach((e) => e.style.display = 'none');
+  }
 };
